@@ -1,0 +1,264 @@
+<!doctype html>
+<html xmlns="https://www.w3.org/1999/xhtml"
+      xmlns:fb="https://ogp.me/ns/fb#">
+<head>
+<title>MyGunCard</title>
+<meta charset="utf-8">
+<meta property="og:url" content="https://www.myguncard.com/"/>
+<meta property="og:image" content="https://www.myguncard.com/SmallLogo.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Gun Card Site" />
+<meta property="og:description" content="Form-filling technology to quickly get your work completed. Optimized for Chrome on PC/Laptops. Now, has 3591 Form!"/>
+<meta property="fb:app_id" content="1194820950589254" /> 
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+</head>
+
+
+
+<body>
+<div class="jumbotron">
+  <h1>MyGunCard</h1> 
+  <p>An online tool to facilitate weapon card creation</p> 
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MyGunCard</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Tech Pub</a></li>
+          <li><a href="#">SAMI Book</a></li>
+          <li><a href="#">Target</a></li> 
+        </ul>
+      </li>
+      <li><a href="#">Page 2</a></li> 
+      <li><a href="#">Page 3</a></li> 
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+<div class="row">
+
+<div class="container">
+<table class="table table-hover" id="printCardPageID">
+
+<thead>
+  <th>Weapons</th>
+  <th>Issue Date</th>
+  <th>Expire Date</th>
+</thead>
+
+<tbody>
+
+<tr>
+<td class="col-sm-1" style="background-color: yellow;"><select class="form-control" id="frontCardWeaponfield" onchange="savev()">
+<option value="See Reverse" disabled selected>Weapons</option>
+<option value="9MM">9MM</option>
+<option value="M16">M16</option>
+<option value="M500">M500</option>
+<option value="9MM,M16">9MM, M16</option>
+<option value="9MM,M500">9MM, M500</option>
+<option value="M16,M500">M16, M500</option>
+<option value="9MM,M16,M500">9MM, M16, M500</option>
+<option value="M240">M240</option>
+<option value="9MM,M16,M240">9MM, M16, M240</option>
+<option value="See Reverse">See Reverse</option>
+</select></td>
+
+<td class="col-sm-1" style="background-color: yellow;"><input class="form-control" type="date" onblur="savev()" onchange="weaponExpireDate()" id="frontWeapondoifield" /></td> 
+
+<td class="col-sm-1" style="background-color: yellow;"><input class="form-control" type="date" id="frontWeapondoefield" /></td>
+</tr>
+</div>
+
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+<div class="row">
+<div class="col-md-6"></div>
+
+
+<!-- scoreTable Backside of Card -->
+<table class="table table-hover" id="scoreTable">
+<thead id="scoreTableRow">
+<tr>
+<th >Weapon</th>
+<th >Qual Date</th>
+<th >Expiration Date</th>
+<th>Category</th>
+</tr>
+</thead>
+
+<tbody>
+<tr id="scoreTableRow">
+<td  >
+<select class="form-control" id="selectedpistol" placeholder="Pistol" onchange="savev()" >
+<option value="" disabled selected>Pistol</option>
+<option value="">Blank</option>
+<option value="9MM">9MM</option>
+<option value="M11">M11</option>
+<option value="M9/M11">M9/M11</option>
+</select>
+</td>
+
+<td><input class="form-control" type="date" onchange="nineIssueDate()" id="pistoldoi" /></td>
+
+<td><input class="form-control" type="date" id="pistoldoe" onblur="savev()" /></td>
+
+<td><select class="form-control" id="pistolcat" onchange="savev()">
+<option disabled selected></option>
+<option title="Category I personnel must qualify on the Navy Handgun Qualification Course on an annual basis with the same type pistol they shall be issued." value="I" >1</option>
+
+<option title="Category II personnel shall qualify on all courses of fire required by 3591 as specified by each weapon-specific enclosure for the weapons they are issued." value="II">2</option>
+<option value="III">3</option>
+<option value="IV">4</option>
+<option value="">Blank</option>
+</select></td>
+</tr>
+
+<tr id="scoreTableRow">
+<td >
+<select class="form-control" id="selectedrifle" placeholder="Rifle" onchange="savev()" >
+<option value="" disabled selected>Rifle</option>
+<option value="">Blank</option>
+<option value="M16">M16</option>
+<option value="M4/M16">M4/M16</option>
+<option value="M4">M4</option>
+<option value="M14">M14</option>
+<option value="---">---</option>
+<option value="Mk 16">Mk 16</option>
+<option value="Mk 17">Mk 17</option>
+</select></td>
+<td><input class="form-control" type="date" onblur="savev()" onchange="rifleIssueDate()" id="rifledoi"  /></td>
+<td><input class="form-control" type="date" onblur="savev()" id="rifledoe" /></td>
+
+<td ><select class="form-control" onchange="savev()" id="riflecat">
+<option disabled selected></option>
+<option value="I">1</option>
+<option value="II">2</option>
+<option value="III">3</option>
+<option value="IV">4</option>
+<option value="">Blank</option>
+</select></td>
+</tr>
+
+<tr id="scoreTableRow">
+<td placeholder="Shotgun" >
+<select class="form-control" id="selectedshotgun" onchange="savev()">
+<option value="" disabled selected>Shotgun</option>
+<option value="">Blank</option>
+<option value="M500">M500</option>
+<option value="M590">M590</option>
+<option value="M590A1">M590A1</option>
+</select>
+</td>
+<td><input class="form-control" type="date" onblur="savev()" onchange="shotgunIssueDate()" id="shotgundoi" /></td> 
+<td><input class="form-control" type="date" id="shotgundoe" /></td>
+<td><select class="form-control" id="shotguncat" onchange="savev()">
+<option disabled selected></option>
+<option value="I" >1</option>
+<option value="II">2</option>
+<option value="III">3</option>
+<option value="IV">4</option>
+<option value="">Blank</option>
+</select></td>
+</tr>
+
+<tr>
+<td >
+<select class="form-control" id="selectedmachinegun" placeholder="MG" onchange="savev()">
+<option value="" disabled selected>MG</option>
+<option value="" onchange="clearDate();" >Blank</option>
+<option value="M240">M240</option>
+<option value="M2HB">50 Cal</option>
+<option value="MK44">MK44</option>
+<option value="MK19">MK19</option>
+<option value="MK14">Mk14</option>
+<option value="MK48">Mk48</option>
+</select>
+</td>
+<td><input class="form-control" type="date" onchange="machinegunIssueDate()" onblur="savev()" id="mgdoi" /></td>
+<td><input class="form-control" type="date" id="mgdoe" /></td>
+
+<td><select class="form-control" id="mgcat" onchange="savev()" >
+<option disabled selected></option>
+<option value="I">1</option>
+<option value="II">2</option>
+<option value="III">3</option>
+<option value="IV">4</option>
+<option value="">Blank</option>
+</select></td>
+</tr>
+
+  
+</tbody>
+</table>
+
+
+</div>
+</div>
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>
